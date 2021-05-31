@@ -23,6 +23,9 @@
 
 ## You Only Look at One Sequence (YOLOS)
 
+### The Illustration of YOLOS
+![yolos](yolos.png)
+
 ### Highlights
 
 Directly inherited from [ViT](https://arxiv.org/abs/2010.11929) ([DeiT](https://arxiv.org/abs/2012.12877)), YOLOS is not designed to be yet another high-performance object detector, but to unveil the versatility and transferability of Transformer from image recognition to object detection.
@@ -36,8 +39,6 @@ Concretely, our main contributions are summarized as follows:
 
 * We also discuss the impacts as wel as the limitations of prevalent pre-train schemes and model scaling strategies for Transformer in vision through transferring to object detection.
 
-### The Illustration of YOLOS
-![yolos](yolos.png)
 
 ## Citation
 
