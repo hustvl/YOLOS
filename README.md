@@ -48,7 +48,6 @@ Concretely, our main contributions are summarized as follows:
 |`YOLOS-S (dWr)`|300|[Baidu Drive](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw), [Google Drive](https://drive.google.com/file/d/1uucdzz65lnv-vGFQunTgYSWl7ayJIDgn/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[Baidu Drive](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w), [Google Drive](https://drive.google.com/file/d/1vBJVXqazsOoHHMZ6Vg6-MpAkYWstLczQ/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
 |`YOLOS-B`|1000|[FB](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew), [Google Drive](https://drive.google.com/file/d/1AUCedyYT2kxgHJNi3UA23P2UNTreGj3_/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
 
-
 **Notes**: 
 
 - The access code for `Baidu Drive` is `yolo`. 
