@@ -40,18 +40,24 @@ Concretely, our main contributions are summarized as follows:
 * We also discuss the impacts as wel as the limitations of prevalent pre-train schemes and model scaling strategies for Transformer in vision through transferring to object detection.
 
 ### Results
-|Model |Pre-train Epochs | Backbone | Fine-tune Epochs | Eval Size | YOLOS Checkpoint | AP |
+|Model |Pre-train Epochs | Backbone Weight / log| Fine-tune Epochs | Eval Size | YOLOS Checkpoint / log | AP |
 |--- |--- |--- |--- |--- |--- |--- |
-|YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[yolos_ti.pth](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw)|28.7
+|YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[yolos_ti.pth](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw) / [log]()|28.7
 |YOLOS-S|200|[Deit-S](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q)|150|800|[yolos_s_200_pre.pth](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw)|36.1
+<<<<<<< HEAD
 |YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[yolos_s_300_pre.pth](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg)|36.1
 |YOLOS-S(dWr)|300|[Deit-S(d**w**r)](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw)|150|800|[yolos_s_dWr.pth](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w)|37.6
 |YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew)|42.0
+=======
+|YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[yolos_s_300_pre.pth](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg) / [log](https://gist.github.com/Yuxin-CV/42d733e478c76f686f2b52cf50dfe59d)|36.1
+|YOLOS-S(dWr)|300|[Deit-S(dWr)](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw) / [log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[yolos_s_dWr.pth](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w) / [log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
+|YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew) / [log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
+>>>>>>> 8ece6c8ab9ba0b66b2ded094d6303eeb9fc59ae2
 
 
 **Notes**: 
 
-- Access code for `pan.baidu.com` is `yolo`.
+- Access code for `pan.baidu.com` is `yolo`, we will 
 
 ### Requirement
 This codebase has been developed with python version 3.6, PyTorch 1.5+ and torchvision 0.6+:
