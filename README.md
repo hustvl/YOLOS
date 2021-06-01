@@ -47,6 +47,8 @@ Concretely, our main contributions are summarized as follows:
 |YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[yolos_s_300_pre.pth](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg)|36.1
 |YOLOS-S(dWr)|300|[Deit-S(d**w**r)]()|150|800|[yolos_s_dWr.pth](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w)|37.6
 |YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew)|42.0
+
+
 **Notes**: 
 
 - Access code for `baidu` is `yolo`.
