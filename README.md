@@ -77,7 +77,7 @@ path/to/coco/
 ### Training
 Before finetuning on COCO, you need download the ImageNet pretrained model to the `/path/to/YOLOS/` directory
 <details>
-<summary>To train the YOLOS-Ti model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-Ti</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -95,7 +95,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S model with 200 epoch pretrained Deit-S in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S</code> model with 200 epoch pretrained Deit-S in the paper, run this command:</summary>
 <pre><code>
 
 python -m torch.distributed.launch \
@@ -116,7 +116,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S model with 300 epoch pretrained Deit-S in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S</code> model with 300 epoch pretrained Deit-S in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -136,7 +136,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S(dWr) model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S (dWr)</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -155,7 +155,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-B model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-B</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -176,21 +176,21 @@ python -m torch.distributed.launch \
 
 ### Evaluation
 
-To evaluate YOLOS-Ti model on coco, run:
+To evaluate `YOLOS-Ti` model on COCO, run:
 
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 2 --backbone_name tiny --eval --eval_size 512 --init_pe_size 800 1333 --resume /path/to/YOLOS-Ti
 ```
-To evaluate YOLOS-S model on coco, run:
+To evaluate `YOLOS-S` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S
 ```
-To evaluate YOLOS-S(dWr) model on coco, run:
+To evaluate `YOLOS-S (dWr)` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small_dWr --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S(dWr)
 ```
 
-To evaluate YOLOS-B model on coco, run:
+To evaluate `YOLOS-B` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
 ```
@@ -198,8 +198,12 @@ python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --
 ### Visualization
 We have observed some intriguing properties of YOLOS, and we are working on a notebook to better demonstrate them, please stay tuned :)
 
+
+
 ## Acknowledgement :heart:
 This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
+
+
 
 ## Citation
 
