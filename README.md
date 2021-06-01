@@ -5,7 +5,7 @@
 
 * **TL;DR:** We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
 
-* Code and model weights will be released soon, please stay tuned :)
+* This project is under active development.
 
 <br>
 
@@ -40,18 +40,20 @@ Concretely, our main contributions are summarized as follows:
 * We also discuss the impacts as wel as the limitations of prevalent pre-train schemes and model scaling strategies for Transformer in vision through transferring to object detection.
 
 ### Results
-|Model |Pre-train Epochs | Backbone Weight / log| Fine-tune Epochs | Eval Size | YOLOS Checkpoint / log | AP |
-|--- |--- |--- |--- |--- |--- |--- |
-|YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[yolos_ti.pth](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw) / [log]()|28.7
-|YOLOS-S|200|[Deit-S](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q)|150|800|[yolos_s_200_pre.pth](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw)|36.1
-|YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[yolos_s_300_pre.pth](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg) / [log](https://gist.github.com/Yuxin-CV/42d733e478c76f686f2b52cf50dfe59d)|36.1
-|YOLOS-S(dWr)|300|[Deit-S(dWr)](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw) / [log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[yolos_s_dWr.pth](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w) / [log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
-|YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew) / [log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
+|Model |Pre-train Epochs |  ViT (DeiT) Weight / Log| Fine-tune Epochs | Eval Size | YOLOS Checkpoint / Log | AP @ COCO val |
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+|`YOLOS-Ti`|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[Baidu Drive](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw), [Google Drive](https://drive.google.com/file/d/1P2YbnAIsEOOheAPr3FGkAAD7pPuN-2Mn/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/aaf4f835f5fdba4b58217f0e3131e9da)|28.7
+|`YOLOS-S`|200|[Baidu Drive](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q), [Google Drive](https://drive.google.com/file/d/1waIu4QODBu79JuIwMvchpezrP4nd3NQr/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/98168420dbcc5a0d1e656da83c6bf416)|150|800|[Baidu Drive](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw), [Google Drive](https://drive.google.com/file/d/1kfHJnC29MqEaizR-d57tzpAxQVhoYRlh/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/ab06dd0d5034e501318de2e9aba9a6fb)|36.1
+|`YOLOS-S`|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg), [Google Drive](https://drive.google.com/file/d/1GUB16Zt1BUsT-LeHa8oHTE2CwL7E92VY/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/42d733e478c76f686f2b52cf50dfe59d)|36.1
+|`YOLOS-S (dWr)`|300|[Baidu Drive](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw), [Google Drive](https://drive.google.com/file/d/1uucdzz65lnv-vGFQunTgYSWl7ayJIDgn/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[Baidu Drive](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w), [Google Drive](https://drive.google.com/file/d/1vBJVXqazsOoHHMZ6Vg6-MpAkYWstLczQ/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
+|`YOLOS-B`|1000|[FB](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew), [Google Drive](https://drive.google.com/file/d/1AUCedyYT2kxgHJNi3UA23P2UNTreGj3_/view?usp=sharing) / [Log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
 
 
 **Notes**: 
 
-- Access code for `pan.baidu.com` is `yolo`, we will 
+- The access code for `Baidu Drive` is `yolo`. 
+- The `FB` stands for model weights provided by DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)). Thanks for their wonderful works.
+- We will update other models in the future, please stay tuned :) 
 
 ### Requirement
 This codebase has been developed with python version 3.6, PyTorch 1.5+ and torchvision 0.6+:
@@ -75,7 +77,7 @@ path/to/coco/
 ### Training
 Before finetuning on COCO, you need download the ImageNet pretrained model to the `/path/to/YOLOS/` directory
 <details>
-<summary>To train the YOLOS-Ti model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-Ti</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -93,7 +95,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S model with 200 epoch pretrained Deit-S in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S</code> model with 200 epoch pretrained Deit-S in the paper, run this command:</summary>
 <pre><code>
 
 python -m torch.distributed.launch \
@@ -114,7 +116,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S model with 300 epoch pretrained Deit-S in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S</code> model with 300 epoch pretrained Deit-S in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -134,7 +136,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-S(dWr) model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-S (dWr)</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -153,7 +155,7 @@ python -m torch.distributed.launch \
 </details>
 
 <details>
-<summary>To train the YOLOS-B model in the paper, run this command:</summary>
+<summary>To train the <code>YOLOS-B</code> model in the paper, run this command:</summary>
 <pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
@@ -174,24 +176,33 @@ python -m torch.distributed.launch \
 
 ### Evaluation
 
-To evaluate YOLOS-Ti model on coco, run:
+To evaluate `YOLOS-Ti` model on COCO, run:
 
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 2 --backbone_name tiny --eval --eval_size 512 --init_pe_size 800 1333 --resume /path/to/YOLOS-Ti
 ```
-To evaluate YOLOS-S model on coco, run:
+To evaluate `YOLOS-S` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S
 ```
-To evaluate YOLOS-S(dWr) model on coco, run:
+To evaluate `YOLOS-S (dWr)` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small_dWr --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S(dWr)
 ```
 
-To evaluate YOLOS-B model on coco, run:
+To evaluate `YOLOS-B` model on COCO, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
 ```
+
+### Visualization
+We have observed some intriguing properties of YOLOS, and we are working on a notebook to better demonstrate them, please stay tuned :)
+
+
+
+## Acknowledgement :heart:
+This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
+
 
 
 ## Citation
