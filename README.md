@@ -44,7 +44,6 @@ Concretely, our main contributions are summarized as follows:
 |--- |--- |--- |--- |--- |--- |--- |
 |YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[yolos_ti.pth](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw) / [log]()|28.7
 |YOLOS-S|200|[Deit-S](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q)|150|800|[yolos_s_200_pre.pth](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw)|36.1
-<<<<<<< HEAD
 |YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[yolos_s_300_pre.pth](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg)|36.1
 |YOLOS-S(dWr)|300|[Deit-S(d**w**r)](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw)|150|800|[yolos_s_dWr.pth](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w)|37.6
 |YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew)|42.0
