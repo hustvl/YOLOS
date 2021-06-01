@@ -39,7 +39,7 @@ Concretely, our main contributions are summarized as follows:
 
 * We also discuss the impacts as wel as the limitations of prevalent pre-train schemes and model scaling strategies for Transformer in vision through transferring to object detection.
 
-## Requirement
+### Requirement
 This codebase has been developed with python version 3.6, PyTorch 1.5+ and torchvision 0.6+:
 ```setup
 conda install -c pytorch pytorch torchvision
@@ -50,7 +50,7 @@ conda install cython scipy
 pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 ```
 
-## Data preparation
+### Data preparation
 Download and extract COCO 2017 train and val images with annotations from http://cocodataset.org. We expect the directory structure to be the following:
 ```
 path/to/coco/
@@ -58,7 +58,7 @@ path/to/coco/
   train2017/    # train images
   val2017/      # val images
 ```
-## Training
+### Training
 To train the YOLOS-Ti model(s) in the paper, run this command:
 
 ```train
@@ -115,7 +115,7 @@ python -m torch.distributed.launch \
 
 ```
 
-## Evaluation
+### Evaluation
 
 To evaluate YOLOS-Ti model on coco, run:
 
@@ -131,7 +131,7 @@ To evaluate YOLOS-B model on coco, run:
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
 ```
 
-## Results
+### Results
 | Model | Pretrained Epochs |Backbone|Finetuned Epochs| eval_size |#Params (M) | FLOPS(G) | URL | AP|
 | --- | --- | ---|--- | --- | --- |--- |---| ---|
 |YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|6.5|???|[yolos_ti.pth]()|28.7
