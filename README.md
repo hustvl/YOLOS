@@ -51,7 +51,7 @@ Concretely, our main contributions are summarized as follows:
 
 **Notes**: 
 
-- Access code for `baidu` is `yolo`.
+- Access code for `pan.baidu.com` is `yolo`.
 
 ### Requirement
 This codebase has been developed with python version 3.6, PyTorch 1.5+ and torchvision 0.6+:
