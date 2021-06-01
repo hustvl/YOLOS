@@ -39,7 +39,97 @@ Concretely, our main contributions are summarized as follows:
 
 * We also discuss the impacts as wel as the limitations of prevalent pre-train schemes and model scaling strategies for Transformer in vision through transferring to object detection.
 
+## Requirement
+This codebase has been developed with python version 3.6, PyTorch 1.5+ and torchvision 0.6+:
+```setup
+conda install -c pytorch pytorch torchvision
+```
+Install pycocotools (for evaluation on COCO) and scipy (for training):
+```setup
+conda install cython scipy
+pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+```
 
+## Data preparation
+Download and extract COCO 2017 train and val images with annotations from http://cocodataset.org. We expect the directory structure to be the following:
+```
+path/to/coco/
+  annotations/  # annotation json files
+  train2017/    # train images
+  val2017/      # val images
+```
+## Training
+To train the YOLOS-Ti model(s) in the paper, run this command:
+
+```train
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --use_env main.py \
+    --coco_path /path/to/coco
+    --batch_size 2 \
+    --lr 5e-5 \
+    --epochs 300 \
+    --backbone_name tiny \
+    --pre_trained \
+    --eval_size 512 \
+    --init_pe_size 800 1333 \
+    --output_dir /output/path/box_model
+
+```
+
+
+To train the YOLOS-S model(s) in the paper, run this command:
+
+```train
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --use_env main.py \
+    --coco_path /path/to/coco
+    --batch_size 1 \
+    --lr 2.5e-5 \
+    --epochs 150 \
+    --backbone_name small \
+    --pre_trained \
+    --eval_size 800 \
+    --init_pe_size 512 864 \
+    --mid_pe_size 512 864 \
+    --output_dir /output/path/box_model
+
+```
+To train the YOLOS-B model(s) in the paper, run this command:
+
+```train
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --use_env main.py \
+    --coco_path /path/to/coco
+    --batch_size 1 \
+    --lr 2.5e-5 \
+    --epochs 150 \
+    --backbone_name base \
+    --pre_trained \
+    --eval_size 800 \
+    --init_pe_size 800 1344 \
+    --mid_pe_size 800 1344 \
+    --output_dir /output/path/box_model
+
+```
+
+## Evaluation
+
+To evaluate YOLOS-Ti model on coco, run:
+
+```eval
+python main.py --coco_path /path/to/coco --batch_size 2 --backbone_name tiny --eval --eval_size 512 --init_pe_size 800 1333 --resume /path/to/YOLOS-Ti
+```
+To evaluate YOLOS-S model on coco, run:
+```eval
+python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S
+```
+To evaluate YOLOS-B model on coco, run:
+```eval
+python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
+```
 ## Citation
 
 If you find our paper and code useful in your research, please consider giving a star :star: and citation :pencil: :
