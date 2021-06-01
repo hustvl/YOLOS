@@ -41,12 +41,12 @@ Concretely, our main contributions are summarized as follows:
 
 ### Results
 |Model |Pre-train Epochs |  ViT (DeiT) Weight / Log| Fine-tune Epochs | Eval Size | YOLOS Checkpoint / Log | AP @ COCO val |
-|--- |--- |--- |--- |--- |--- |--- |
-|YOLOS-Ti|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[Baidu Drive](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/aaf4f835f5fdba4b58217f0e3131e9da)|28.7
-|YOLOS-S|200|[Baidu Drive](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q), Google Drive / [Log](https://gist.github.com/Yuxin-CV/98168420dbcc5a0d1e656da83c6bf416)|150|800|[Baidu Drive](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/ab06dd0d5034e501318de2e9aba9a6fb)|36.1
-|YOLOS-S|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg), Google Drive / [Log](https://gist.github.com/Yuxin-CV/42d733e478c76f686f2b52cf50dfe59d)|36.1
-|YOLOS-S(dWr)|300|[Baidu Drive](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[Baidu Drive](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w), Google Drive / [Log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
-|YOLOS-B|1000|[FB](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew), Google Drive / [Log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+|`YOLOS-Ti`|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|512|[Baidu Drive](https://pan.baidu.com/s/17kn_UX1LhsjRWxeWEwgWIw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/aaf4f835f5fdba4b58217f0e3131e9da)|28.7
+|`YOLOS-S`|200|[Baidu Drive](https://pan.baidu.com/s/1LsxtuxSGGj5szZssoyzr_Q), Google Drive / [Log](https://gist.github.com/Yuxin-CV/98168420dbcc5a0d1e656da83c6bf416)|150|800|[Baidu Drive](https://pan.baidu.com/s/1m39EKyO_7RdIYjDY4Ew_lw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/ab06dd0d5034e501318de2e9aba9a6fb)|36.1
+|`YOLOS-S`|300|[FB](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/12v6X-r4XhV5nEXF6yNfGRg), Google Drive / [Log](https://gist.github.com/Yuxin-CV/42d733e478c76f686f2b52cf50dfe59d)|36.1
+|`YOLOS-S (dWr)`|300|[Baidu Drive](https://pan.baidu.com/s/1XVfWJk5BFnxIQ3LQeAQypw), Google Drive / [Log](https://gist.github.com/Yuxin-CV/e3beedccff156b0065f2eb559a4818d3)|150|800|[Baidu Drive](https://pan.baidu.com/s/1Xk2KbFadSwCOjo7gcoSG0w), Google Drive / [Log](https://gist.github.com/Yuxin-CV/043ea5d27883a6ff1f105ad5d9ddaa46) |37.6
+|`YOLOS-B`|1000|[FB](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[Baidu Drive](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew), Google Drive / [Log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
 
 
 **Notes**: 
