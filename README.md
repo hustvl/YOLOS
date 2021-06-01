@@ -69,6 +69,7 @@ path/to/coco/
   val2017/      # val images
 ```
 ### Training
+Before finetuning on COCO, you need download the ImageNet pretrained model to the `/path/to/YOLOS/` directory
 <details>
 <summary>To train the YOLOS-Ti model in the paper, run this command:</summary>
 <pre><code>
