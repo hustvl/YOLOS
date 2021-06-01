@@ -49,7 +49,6 @@ Concretely, our main contributions are summarized as follows:
 |YOLOS-B|1000|[Deit-B (:alembic:)](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|800|[yolos_base.pth](https://pan.baidu.com/s/1IKGoAlwcdoV25cU5Cs-kew) / [log](https://gist.github.com/Yuxin-CV/d5f7720a5868563619ddd64d61760e2f)|42.0
 
 
-
 **Notes**: 
 
 - Access code for `pan.baidu.com` is `yolo`, we will 
