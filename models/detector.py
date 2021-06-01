@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from torch import nn
 from functools import partial
 
-from .deit_backbone import *
+from .backbone import *
 
 
 from .matcher import build_matcher
@@ -35,29 +35,15 @@ class Detector(nn.Module):
         super().__init__()
         # import pdb;pdb.set_trace()
         if backbone_name == 'tiny':
-            self.backbone, hidden_dim = deit_tiny_patch16_224(pretrained=pre_trained)
+            self.backbone, hidden_dim = tiny(pretrained=pre_trained)
         elif backbone_name == 'small':
-            self.backbone, hidden_dim = deit_small_patch16_224(pretrained=pre_trained)
-        elif backbone_name == 'deit_tiny_distilled':
-            self.backbone, hidden_dim = deit_tiny_distilled_patch16_224(pretrained=pre_trained)
-        elif backbone_name == 'deit_small_distilled':
-            self.backbone, hidden_dim = deit_small_distilled_patch16_224(pretrained=pre_trained)
+            self.backbone, hidden_dim = small(pretrained=pre_trained)
         elif backbone_name == 'base':
-            self.backbone, hidden_dim = deit_base_distilled_patch16_384(pretrained=pre_trained)
-        elif backbone_name == 'fa_deit_small':
-            self.backbone, hidden_dim = fa_deit_small(pretrained=pre_trained)
-        elif backbone_name == 'uni_deit_small':
-            self.backbone, hidden_dim = uni_deit_small(pretrained=pre_trained)
-        elif backbone_name == 'deit_13_236_704':
-            self.backbone, hidden_dim = deit_13_236_704(pretrained=pre_trained)
-        elif backbone_name == 'deit_16_220_688':
-            self.backbone, hidden_dim = deit_16_220_688(pretrained=pre_trained)
-        elif backbone_name == 'dino_deits16':
-            self.backbone, hidden_dim = dino_deits16(pretrained=pre_trained)
-        elif backbone_name == 'dino_deits8':
-            self.backbone, hidden_dim = dino_deits8(pretrained=pre_trained)
-        elif backbone_name == 'base_IN_21k':
-            self.backbone, hidden_dim = base_IN_21k(pretrained=pre_trained)
+            self.backbone, hidden_dim = base(pretrained=pre_trained)
+        elif backbone_name == 'small_dWr':
+            self.backbone, hidden_dim = small_dWr(pretrained=pre_trained)
+        else:
+            raise ValueError(f'backbone {backbone_name} not supported')
         
         self.backbone.finetune_det(det_token_num=det_token_num, img_size=init_pe_size, mid_pe_size=mid_pe_size)
         

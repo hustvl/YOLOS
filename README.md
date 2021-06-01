@@ -143,7 +143,7 @@ python -m torch.distributed.launch \
     --batch_size 1 \
     --lr 2.5e-5 \
     --epochs 150 \
-    --backbone_name fa_deit_small \
+    --backbone_name small_dWr \
     --pre_trained /path/to/deit-small-dWr-scale.pth\
     --eval_size 800 \
     --init_pe_size 512 864 \
@@ -185,7 +185,7 @@ python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --
 ```
 To evaluate YOLOS-S(dWr) model on coco, run:
 ```eval
-python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name fa_deit_small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S(dWr)
+python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small_dWr --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S(dWr)
 ```
 
 To evaluate YOLOS-B model on coco, run:
