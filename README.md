@@ -130,6 +130,15 @@ To evaluate YOLOS-B model on coco, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
 ```
+
+## Results
+| Model | Pretrained Epochs |Backbone|Finetuned Epochs| Size |#Params (M) | FLOPS(G) | URL | AP|
+| --- | --- | ---|--- | --- | --- |--- |---| ---|
+|YOLOS-Ti|300|[Deit-Ti](https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth)|300|$512 \times *$|6.5|???|[yolos_ti.pth]()|28.7
+|YOLOS-S|300|[Deit-S](https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth)|150|$800 \times *$|30.7|200.2|[yolos_s_300_pre.pth]()|36.1
+|YOLOS-S|200|[Deit-S]()|150|$800 \times *$|30.7|200.2|[yolos_s_300_pre.pth]()|36.1
+|YOLOS-S($d\mathbf{w}r$)|300|[Deit-S($d\mathbf{w}r$ Scale)]()|150|$800 \times *$|27.9|179|[yolos_s_dWr.pth]()|37.6
+|YOLOS-B|300|[Deit-B distilled](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)|150|$800 \times *$|127|537|[yolos_base.pth]()|42.0
 ## Citation
 
 If you find our paper and code useful in your research, please consider giving a star :star: and citation :pencil: :
