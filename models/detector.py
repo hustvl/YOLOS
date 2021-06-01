@@ -31,7 +31,7 @@ class MLP(nn.Module):
         return x
 
 class Detector(nn.Module):
-    def __init__(self, num_classes, pre_trained=False, det_token_num=100, backbone_name='tiny', init_pe_size=[800,1344], mid_pe_size=None):
+    def __init__(self, num_classes, pre_trained=None, det_token_num=100, backbone_name='tiny', init_pe_size=[800,1344], mid_pe_size=None):
         super().__init__()
         # import pdb;pdb.set_trace()
         if backbone_name == 'tiny':

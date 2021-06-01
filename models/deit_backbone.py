@@ -323,147 +323,159 @@ def _conv_filter(state_dict, patch_size=16):
         out_dict[k] = v
     return out_dict
 
-def deit_tiny_patch16_224(pretrained=False, **kwargs):
+def deit_tiny_patch16_224(pretrained=None, **kwargs):
     model = VisionTransformer(
                 patch_size=16, embed_dim=192, depth=12, num_heads=3, mlp_ratio=4, qkv_bias=True,
                 norm_layer=partial(nn.LayerNorm, eps=1e-6))
     if pretrained: 
         # checkpoint = torch.load('deit_tiny_patch16_224-a1311bcf.pth', map_location="cpu")
-        checkpoint = torch.hub.load_state_dict_from_url(
-            url="https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth",
-            map_location="cpu", check_hash=True
-        )
+        # checkpoint = torch.hub.load_state_dict_from_url(
+        #     url="https://dl.fbaipublicfiles.com/deit/deit_tiny_patch16_224-a1311bcf.pth",
+        #     map_location="cpu", check_hash=True
+        # )
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 192
 
-def deit_tiny_distilled_patch16_224(pretrained=False, **kwargs):
+def deit_tiny_distilled_patch16_224(pretrained=None, **kwargs):
     model = VisionTransformer(
                 patch_size=16, embed_dim=192, depth=12, num_heads=3, mlp_ratio=4, qkv_bias=True,
                 norm_layer=partial(nn.LayerNorm, eps=1e-6), is_distill=True)
     if pretrained: 
         # checkpoint = torch.load('deit_tiny_patch16_224-a1311bcf.pth', map_location="cpu")
-        checkpoint = torch.hub.load_state_dict_from_url(
-            url="https://dl.fbaipublicfiles.com/deit/deit_tiny_distilled_patch16_224-b40b3cf7.pth",
-            map_location="cpu", check_hash=True
-        )
+        # checkpoint = torch.hub.load_state_dict_from_url(
+        #     url="https://dl.fbaipublicfiles.com/deit/deit_tiny_distilled_patch16_224-b40b3cf7.pth",
+        #     map_location="cpu", check_hash=True
+        # )
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 192
     
-def deit_small_patch16_224(pretrained=False, **kwargs):
+def deit_small_patch16_224(pretrained=None, **kwargs):
     model = VisionTransformer(
         patch_size=16, embed_dim=384, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
         # checkpoint = torch.load('deit_small_patch16_224-cd65a155.pth', map_location="cpu")
-        checkpoint = torch.hub.load_state_dict_from_url(
-            url="https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth",
-            map_location="cpu", check_hash=True
-        )
+        # checkpoint = torch.hub.load_state_dict_from_url(
+        #     url="https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth",
+        #     map_location="cpu", check_hash=True
+        # )
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 384
 
 
-def fa_deit_small(pretrained=False, **kwargs):
+def fa_deit_small(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=240, 
         patch_size=16, embed_dim=330, depth=14, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('fa_deit_ldr_14_330_240.pth', map_location="cpu")
+        # checkpoint = torch.load('fa_deit_ldr_14_330_240.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 330
 
 
-def uni_deit_small(pretrained=False, **kwargs):
+def uni_deit_small(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=272,
         patch_size=16, embed_dim=240, depth=19, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('uni_deit_small_ldr_19_240_272.pth', map_location="cpu")
+        # checkpoint = torch.load('uni_deit_small_ldr_19_240_272.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 240
 
 
-def deit_13_236_704(pretrained=False, **kwargs):
+def deit_13_236_704(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=256, 
         patch_size=16, embed_dim=236, depth=13, num_heads=4, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('deit_13_236_704.pth', map_location="cpu")
+        # checkpoint = torch.load('deit_13_236_704.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 236
 
 
-def deit_16_220_688(pretrained=False, **kwargs):
+def deit_16_220_688(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=240, 
         patch_size=16, embed_dim=220, depth=16, num_heads=4, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('deit_16_220_688.pth', map_location="cpu")
+        # checkpoint = torch.load('deit_16_220_688.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 220
 
-def deit_base_distilled_patch16_384(pretrained=False, **kwargs):
+def deit_base_distilled_patch16_384(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=384, patch_size=16, embed_dim=768, depth=12, num_heads=12, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6),is_distill=True, **kwargs)
     if pretrained:
         # checkpoint = torch.load('deit_base_distilled_patch16_384-d0272ac0.pth', map_location="cpu")
-        checkpoint = torch.hub.load_state_dict_from_url(
-            url="https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth",
-            map_location="cpu", check_hash=True
-        )
+        # checkpoint = torch.hub.load_state_dict_from_url(
+        #     url="https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth",
+        #     map_location="cpu", check_hash=True
+        # )
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 768
 
 
-def deit_small_distilled_patch16_224(pretrained=False, **kwargs):
+def deit_small_distilled_patch16_224(pretrained=None, **kwargs):
     model = VisionTransformer(
         patch_size=16, embed_dim=384, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), is_distill=True, **kwargs)
     if pretrained:
         # checkpoint = torch.load('deit_small_distilled_patch16_224-649709d9.pth', map_location="cpu")
-        checkpoint = torch.hub.load_state_dict_from_url(
-            url="https://dl.fbaipublicfiles.com/deit/deit_small_distilled_patch16_224-649709d9.pth",
-            map_location="cpu", check_hash=True
-        )
+        # checkpoint = torch.hub.load_state_dict_from_url(
+        #     url="https://dl.fbaipublicfiles.com/deit/deit_small_distilled_patch16_224-649709d9.pth",
+        #     map_location="cpu", check_hash=True
+        # )
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint["model"], strict=False)
     return model, 384
 
 
-def dino_deits16(pretrained=False, **kwargs):
+def dino_deits16(pretrained=None, **kwargs):
     model = VisionTransformer(
         patch_size=16, embed_dim=384, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('dino_deitsmall16_pretrain.pth', map_location="cpu")
+        # checkpoint = torch.load('dino_deitsmall16_pretrain.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint, strict=False)
         # print(checkpoint.keys())
         # exit()
     return model, 384
 
 
-def dino_deits8(pretrained=False, **kwargs):
+def dino_deits8(pretrained=None, **kwargs):
     model = VisionTransformer(
         patch_size=8, embed_dim=384, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('dino_deitsmall8_pretrain.pth', map_location="cpu")
+        # checkpoint = torch.load('dino_deitsmall8_pretrain.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         model.load_state_dict(checkpoint, strict=False)
         # print(checkpoint.keys())
         # exit()
     return model, 384
 
 
-def base_IN_21k(pretrained=False, **kwargs):
+def base_IN_21k(pretrained=None, **kwargs):
     model = VisionTransformer(
         img_size=224, patch_size=16, embed_dim=768, depth=12, num_heads=12, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     if pretrained:
-        checkpoint = torch.load('vit_base_patch16_224_in21k_miil.pth', map_location="cpu")
+        # checkpoint = torch.load('vit_base_patch16_224_in21k_miil.pth', map_location="cpu")
+        checkpoint = torch.load(pretrained, map_location="cpu")
         print(checkpoint.keys())
         model.load_state_dict(checkpoint, strict=False)
     return model, 768

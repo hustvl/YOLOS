@@ -72,8 +72,8 @@ def get_args_parser():
                         help="Number of det token in the deit backbone")
     parser.add_argument('--backbone_name', default='tiny', type=str,
                         help="Name of the deit backbone to use")
-    parser.add_argument('--pre_trained', action='store_true',
-                        help="If true, we use tiny deit pretrained model")
+    parser.add_argument('--pre_trained', default='',
+                        help="set imagenet pretrained model path if not train yolos from scatch")
     parser.add_argument('--init_pe_size', nargs='+', type=int,
                         help="init pe size (h,w)")
     parser.add_argument('--mid_pe_size', nargs='+', type=int,

@@ -69,9 +69,9 @@ path/to/coco/
   val2017/      # val images
 ```
 ### Training
-To train the YOLOS-Ti model(s) in the paper, run this command:
-
-```train
+<details>
+<summary>To train the YOLOS-Ti model in the paper, run this command:</summary>
+<pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
     --use_env main.py \
@@ -80,17 +80,17 @@ python -m torch.distributed.launch \
     --lr 5e-5 \
     --epochs 300 \
     --backbone_name tiny \
-    --pre_trained \
+    --pre_trained /path/to/deit-tiny.pth\
     --eval_size 512 \
     --init_pe_size 800 1333 \
     --output_dir /output/path/box_model
+</code></pre>
+</details>
 
-```
-
-
-To train the YOLOS-S model(s) in the paper, run this command:
-
-```train
+<details>
+<summary>To train the YOLOS-S models in the paper, run this command:</summary>
+<pre><code>
+# pretrained 200 epoch
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
     --use_env main.py \
@@ -99,16 +99,51 @@ python -m torch.distributed.launch \
     --lr 2.5e-5 \
     --epochs 150 \
     --backbone_name small \
-    --pre_trained \
+    --pre_trained /path/to/deit-small-200epoch.pth\
+    --eval_size 800 \
+    --init_pe_size 512 864 \
+    --mid_pe_size 512 864 \
+    --output_dir /output/path/box_model
+# pretrained 300 epoch
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --use_env main.py \
+    --coco_path /path/to/coco
+    --batch_size 1 \
+    --lr 2.5e-5 \
+    --epochs 150 \
+    --backbone_name small \
+    --pre_trained /path/to/deit-small-300epoch.pth\
     --eval_size 800 \
     --init_pe_size 512 864 \
     --mid_pe_size 512 864 \
     --output_dir /output/path/box_model
 
-```
-To train the YOLOS-B model(s) in the paper, run this command:
+</code></pre>
+</details>
 
-```train
+<details>
+<summary>To train the YOLOS-S(dWr) model in the paper, run this command:</summary>
+<pre><code>
+python -m torch.distributed.launch \
+    --nproc_per_node=8 \
+    --use_env main.py \
+    --coco_path /path/to/coco
+    --batch_size 1 \
+    --lr 2.5e-5 \
+    --epochs 150 \
+    --backbone_name fa_deit_small \
+    --pre_trained /path/to/deit-small-dWr-scale.pth\
+    --eval_size 800 \
+    --init_pe_size 512 864 \
+    --mid_pe_size 512 864 \
+    --output_dir /output/path/box_model
+</code></pre>
+</details>
+
+<details>
+<summary>To train the YOLOS-B model in the paper, run this command:</summary>
+<pre><code>
 python -m torch.distributed.launch \
     --nproc_per_node=8 \
     --use_env main.py \
@@ -117,13 +152,14 @@ python -m torch.distributed.launch \
     --lr 2.5e-5 \
     --epochs 150 \
     --backbone_name base \
-    --pre_trained \
+    --pre_trained /path/to/deit-base.pth\
     --eval_size 800 \
     --init_pe_size 800 1344 \
     --mid_pe_size 800 1344 \
     --output_dir /output/path/box_model
+</code></pre>
+</details>
 
-```
 
 ### Evaluation
 
@@ -136,6 +172,11 @@ To evaluate YOLOS-S model on coco, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S
 ```
+To evaluate YOLOS-S(dWr) model on coco, run:
+```eval
+python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name fa_deit_small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/YOLOS-S(dWr)
+```
+
 To evaluate YOLOS-B model on coco, run:
 ```eval
 python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 800 1344 --mid_pe_size 800 1344 --resume /path/to/YOLOS-B
