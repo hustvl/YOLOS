@@ -9,7 +9,7 @@
 
 <br>
 
-> [**You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection**](http://arxiv.org/abs/yolos.yolos)
+> [**You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection**](https://arxiv.org/abs/2106.00666)
 >
 > by [Yuxin Fang](https://scholar.google.com/citations?user=_Lk0-fQAAAAJ&hl=en)<sup>1</sup> \*, Bencheng Liao<sup>1</sup> \*, [Xinggang Wang](https://xinggangw.info/)<sup>1 :email:</sup>, [Jiemin Fang](https://jaminfong.cn)<sup>2, 1</sup>, Jiyang Qi<sup>1</sup>, [Rui Wu](https://scholar.google.com/citations?hl=en&user=Z_ZkkbEAAAAJ&view_op=list_works&citft=1&email_for_op=2yuxinfang%40gmail.com&gmla=AJsN-F6AJfvX_wN_jDDdJOp33cW5LrvrAwATh1FFyrUxKD8H354RTN7gMFIXi4NTozHvdj1ITW1q5sNS3ED-3htZJpnUA9BraZa8Wnc_XSfCR37MriE77bh9KHFTKml-qPSgNTPdxwFl8KHxIgOWc_ZuJdvo8cbBWc_Ec3SBL6n7wsYYS2E1Wzm4kWwXQybOJCGjI8_EwHwwipOfkQR9I2C_Riq1gk1Y_JG3BQ3xrTy2fN_plPE37StUe_nOnrTjUz919wcMXKqW)<sup>3</sup>, Jianwei Niu<sup>3</sup>, [Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu/)<sup>1</sup>.
 > 
@@ -17,7 +17,7 @@
 > 
 > (\*) equal contribution, (<sup>:email:</sup>) corresponding author.
 > 
-> *arXiv technical report ([arXiv yolos.yolos](http://arxiv.org/abs/yolos.yolos))*
+> *arXiv technical report ([arXiv 2106.00666](https://arxiv.org/abs/2106.00666))*
 
 <br>
 
@@ -211,8 +211,8 @@ If you find our paper and code useful in your research, please consider giving a
 ```BibTeX
 @article{YOLOS,
   title={You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection},
-  author={All YOLOS Authors},
-  journal={arXiv preprint arXiv:yolos.yolos},
+  author={Fang, Yuxin and Liao, Bencheng and Wang, Xinggang and Fang, Jiemin and Qi, Jiyang and Wu, Rui and Niu, Jianwei and Liu, Wenyu},
+  journal={arXiv preprint arXiv:2106.00666},
   year={2021}
 }
 ```
