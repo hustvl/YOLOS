@@ -15,7 +15,7 @@ import util.misc as utils
 from datasets import build_dataset, get_coco_api_from_dataset
 from engine import evaluate, train_one_epoch
 
-from models import build_model as build_my_model
+from models import build_model as build_yolos_model
 
 from util.scheduler import create_scheduler
 
@@ -120,7 +120,7 @@ def main(args):
     np.random.seed(seed)
     random.seed(seed)
     # import pdb;pdb.set_trace()
-    model, criterion, postprocessors = build_my_model(args)
+    model, criterion, postprocessors = build_yolos_model(args)
     # model, criterion, postprocessors = build_model(args)
     model.to(device)
 
