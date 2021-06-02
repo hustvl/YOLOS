@@ -21,7 +21,7 @@ from util.scheduler import create_scheduler
 
 
 def get_args_parser():
-    parser = argparse.ArgumentParser('Set transformer detector', add_help=False)
+    parser = argparse.ArgumentParser('Set YOLOS', add_help=False)
     parser.add_argument('--lr', default=1e-4, type=float)
     parser.add_argument('--lr_backbone', default=1e-5, type=float)
     parser.add_argument('--batch_size', default=2, type=int)
@@ -55,17 +55,6 @@ def get_args_parser():
                         help='epochs to warmup LR, if scheduler supports')
     parser.add_argument('--decay-rate', '--dr', type=float, default=0.1, metavar='RATE',
                         help='LR decay rate (default: 0.1)')
-
-      
-
-    # * Backbone
-    parser.add_argument('--backbone', default='resnet50', type=str,
-                        help="Name of the convolutional backbone to use")
-    parser.add_argument('--dilation', action='store_true',
-                        help="If true, we replace stride with dilation in the last convolutional block (DC5)")
-    parser.add_argument('--position_embedding', default='sine', type=str, choices=('sine', 'learned'),
-                        help="Type of positional embedding to use on top of the image features")
-
 
     # * model setting
     parser.add_argument("--det_token_num", default=100, type=int,
@@ -269,7 +258,7 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser('DETR training and evaluation script', parents=[get_args_parser()])
+    parser = argparse.ArgumentParser('YOLOS training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args()
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)
