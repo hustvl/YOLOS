@@ -197,8 +197,27 @@ python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --
 ### Visualization
 We have observed some intriguing properties of YOLOS, and we are working on a notebook to better demonstrate them, please stay tuned :)
 
+**Visualize box prediction and object categories distribution**：
 
 
+1. To Get visualization in the paper, you need the finetuned YOLOS models on COCO, run following command to get 100 Det-Toks prediction on COCO val split, then it will generate `/path/to/YOLOS/visualization/modelname-eval-800-eval-pred.json`
+```
+python cocoval_predjson_generation.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --eval --eval_size 800 --init_pe_size 512 864 --mid_pe_size 512 864 --resume /path/to/yolos-s-model.pth --output_dir ./visualization
+```
+2. To get all ground truth object categories on all images from COCO val split, run following command to generate `/path/to/YOLOS/visualization/coco-valsplit-cls-dist.json`
+```
+python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 --output_dir ./visualization
+```
+3. To visualize the distribution of Det-Toks' bboxs and categories, run following command to generate `.png` files in `/path/to/YOLOS/visualization/`
+```
+ python visualize_dettoken_dist.py --visjson /path/to/YOLOS/visualization/modelname-eval-800-eval-pred.json --cococlsjson /path/to/YOLOS/visualization/coco-valsplit-cls-dist.json
+```
+![cls](visualization/yolos_s_300_pre.pth-eval-800eval-pred-bbox.png)
+![cls](./visualization/yolos_s_300_pre.pth-eval-800eval-pred-all-tokens-cls.png)
+
+**Visualize self-attention of the [DetTok] token on the different heads of the last layer：**
+
+we are working on a notebook to better demonstrate them, please stay tuned :)
 ## Acknowledgement :heart:
 This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
 
