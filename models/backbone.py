@@ -318,7 +318,7 @@ class VisionTransformer(nn.Module):
             else:
                 x = self.blocks[i](x)
             if self.has_mid_pe:
-                if i < 11:
+                if i < (self.depth - 1):
                     x = x + temp_mid_pos_embed[i]
 
         x = self.norm(x)
