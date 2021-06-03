@@ -184,7 +184,6 @@ class VisionTransformer(nn.Module):
 
 
         # set finetune flag
-        self.finetune = False
         self.has_mid_pe = False
 
     def _init_weights(self, m):
@@ -244,7 +243,7 @@ class VisionTransformer(nn.Module):
         self.num_classes = num_classes
         self.head = nn.Linear(self.embed_dim, num_classes) if num_classes > 0 else nn.Identity()
 
-    def InterpolatePosEmbed(self, pos_embed, img_size=(800, 1344), mid=False):
+    def InterpolateInitPosEmbed(self, pos_embed, img_size=(800, 1344)):
         # import pdb;pdb.set_trace()
         cls_pos_embed = pos_embed[:, 0, :]
         cls_pos_embed = cls_pos_embed[:,None]
@@ -253,12 +252,9 @@ class VisionTransformer(nn.Module):
         patch_pos_embed = patch_pos_embed.transpose(1,2)
         B, E, Q = patch_pos_embed.shape
 
-        if mid:
-            P_H, P_W = self.mid_pe_size[0] // self.patch_size, self.mid_pe_size[1] // self.patch_size
-            patch_pos_embed = patch_pos_embed.view(B, E, P_H, P_W)
-        else:
-            P_H, P_W = self.img_size[0] // self.patch_size, self.img_size[1] // self.patch_size
-            patch_pos_embed = patch_pos_embed.view(B, E, P_H, P_W)
+
+        P_H, P_W = self.img_size[0] // self.patch_size, self.img_size[1] // self.patch_size
+        patch_pos_embed = patch_pos_embed.view(B, E, P_H, P_W)
 
         # P_H, P_W = self.img_size[0] // self.patch_size, self.img_size[1] // self.patch_size
         # patch_pos_embed = patch_pos_embed.view(B, E, P_H, P_W)
@@ -270,26 +266,42 @@ class VisionTransformer(nn.Module):
         scale_pos_embed = torch.cat((cls_pos_embed, patch_pos_embed, det_pos_embed), dim=1)
         return scale_pos_embed
 
+    def InterpolateMidPosEmbed(self, pos_embed, img_size=(800, 1344)):
+        # import pdb;pdb.set_trace()
+        cls_pos_embed = pos_embed[:, :, 0, :]
+        cls_pos_embed = cls_pos_embed[:,None]
+        det_pos_embed = pos_embed[:, :, -self.det_token_num:,:]
+        patch_pos_embed = pos_embed[:, :, 1:-self.det_token_num, :]
+        patch_pos_embed = patch_pos_embed.transpose(2,3)
+        D, B, E, Q = patch_pos_embed.shape
+
+        P_H, P_W = self.mid_pe_size[0] // self.patch_size, self.mid_pe_size[1] // self.patch_size
+        patch_pos_embed = patch_pos_embed.view(D*B, E, P_H, P_W)
+        H, W = img_size
+        new_P_H, new_P_W = H//self.patch_size, W//self.patch_size
+        patch_pos_embed = nn.functional.interpolate(patch_pos_embed, size=(new_P_H,new_P_W), mode='bicubic', align_corners=False)
+        patch_pos_embed = patch_pos_embed.flatten(2).transpose(1, 2).contiguous().view(D,B,new_P_H*new_P_W,E)
+        scale_pos_embed = torch.cat((cls_pos_embed, patch_pos_embed, det_pos_embed), dim=2)
+        return scale_pos_embed
 
     def forward_features(self, x):
         # import pdb;pdb.set_trace()
         B, H, W = x.shape[0], x.shape[2], x.shape[3]
 
-        if (H,W) != self.img_size:
-            self.finetune = True
+        # if (H,W) != self.img_size:
+        #     self.finetune = True
 
         x = self.patch_embed(x)
         # interpolate init pe
         if (self.pos_embed.shape[1] - 1 - self.det_token_num) != x.shape[1]:
-            temp_pos_embed = self.InterpolatePosEmbed(self.pos_embed, img_size=(H,W))
+            temp_pos_embed = self.InterpolateInitPosEmbed(self.pos_embed, img_size=(H,W))
         else:
             temp_pos_embed = self.pos_embed
         # interpolate mid pe
         if self.has_mid_pe:
-            temp_mid_pos_embed = []
+            # temp_mid_pos_embed = []
             if (self.mid_pos_embed.shape[2] - 1 - self.det_token_num) != x.shape[1]:
-                for i in range(self.mid_pos_embed.shape[0]):
-                    temp_mid_pos_embed.append(self.InterpolatePosEmbed(self.mid_pos_embed[i], img_size=(H,W), mid=True))
+                temp_mid_pos_embed = self.InterpolateMidPosEmbed(self.mid_pos_embed, img_size=(H,W))
             else:
                 temp_mid_pos_embed = self.mid_pos_embed
 
