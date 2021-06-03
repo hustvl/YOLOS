@@ -196,7 +196,7 @@ class VisionTransformer(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
-    def finetune_det(self, img_size=[800, 1344], det_token_num=100, mid_pe_size=None):
+    def finetune_det(self, img_size=[800, 1344], det_token_num=100, mid_pe_size=None, use_checkpoint=False):
         # import pdb;pdb.set_trace()
 
         import math
@@ -227,10 +227,11 @@ class VisionTransformer(nn.Module):
             print('No mid pe')
         else:
             print('Has mid pe')
-            self.mid_pos_embed = nn.Parameter(torch.zeros(self.depth - 1, 1, 1 + (H * W // self.patch_size ** 2) + 100, self.embed_dim))
+            self.mid_pos_embed = nn.Parameter(torch.zeros(self.depth - 1, 1, 1 + (mid_pe_size[0] * mid_pe_size[1] // self.patch_size ** 2) + 100, self.embed_dim))
             trunc_normal_(self.mid_pos_embed, std=.02)
             self.has_mid_pe = True
             self.mid_pe_size = mid_pe_size
+        self.use_checkpoint=use_checkpoint
 
     @torch.jit.ignore
     def no_weight_decay(self):
@@ -278,11 +279,19 @@ class VisionTransformer(nn.Module):
             self.finetune = True
 
         x = self.patch_embed(x)
-
+        # interpolate init pe
         if (self.pos_embed.shape[1] - 1 - self.det_token_num) != x.shape[1]:
             temp_pos_embed = self.InterpolatePosEmbed(self.pos_embed, img_size=(H,W))
         else:
             temp_pos_embed = self.pos_embed
+        # interpolate mid pe
+        if self.has_mid_pe:
+            temp_mid_pos_embed = []
+            if (self.mid_pos_embed.shape[2] - 1 - self.det_token_num) != x.shape[1]:
+                for i in range(self.mid_pos_embed.shape[0]):
+                    temp_mid_pos_embed.append(self.InterpolatePosEmbed(self.mid_pos_embed[i], img_size=(H,W), mid=True))
+            else:
+                temp_mid_pos_embed = self.mid_pos_embed
 
 
         cls_tokens = self.cls_token.expand(B, -1, -1)  # stole cls_tokens impl from Phil Wang, thanks
@@ -292,15 +301,13 @@ class VisionTransformer(nn.Module):
         x = self.pos_drop(x)
 
         for i in range(len((self.blocks))):
-
-            # x = checkpoint.checkpoint(self.blocks[i], x)    # saves mem, takes time
-            x = self.blocks[i](x)
+            if self.use_checkpoint:
+                x = checkpoint.checkpoint(self.blocks[i], x)    # saves mem, takes time
+            else:
+                x = self.blocks[i](x)
             if self.has_mid_pe:
                 if i < 11:
-                    if (self.mid_pos_embed.shape[2] - 1 - self.det_token_num) != x.shape[1]:
-                        x = x + self.InterpolatePosEmbed(self.mid_pos_embed[i], img_size=(H,W), mid=True)
-                    else:
-                        x = x + self.mid_pos_embed[i]
+                    x = x + temp_mid_pos_embed[i]
 
         x = self.norm(x)
 

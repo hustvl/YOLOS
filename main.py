@@ -32,7 +32,8 @@ def get_args_parser():
     parser.add_argument('--clip_max_norm', default=0.1, type=float,
                         help='gradient clipping max norm')
 
-
+    parser.add_argument('--use_checkpoint', action='store_true',
+                        help='use checkpoint.checkpoint to save mem')
     # scheduler
     # Learning rate schedule parameters
     parser.add_argument('--sched', default='warmupcos', type=str, metavar='SCHEDULER',

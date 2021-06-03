@@ -31,7 +31,7 @@ class MLP(nn.Module):
         return x
 
 class Detector(nn.Module):
-    def __init__(self, num_classes, pre_trained=None, det_token_num=100, backbone_name='tiny', init_pe_size=[800,1344], mid_pe_size=None):
+    def __init__(self, num_classes, pre_trained=None, det_token_num=100, backbone_name='tiny', init_pe_size=[800,1344], mid_pe_size=None, use_checkpoint=False):
         super().__init__()
         # import pdb;pdb.set_trace()
         if backbone_name == 'tiny':
@@ -45,7 +45,7 @@ class Detector(nn.Module):
         else:
             raise ValueError(f'backbone {backbone_name} not supported')
         
-        self.backbone.finetune_det(det_token_num=det_token_num, img_size=init_pe_size, mid_pe_size=mid_pe_size)
+        self.backbone.finetune_det(det_token_num=det_token_num, img_size=init_pe_size, mid_pe_size=mid_pe_size, use_checkpoint=use_checkpoint)
         
         self.class_embed = MLP(hidden_dim, hidden_dim, num_classes + 1, 3)
         self.bbox_embed = MLP(hidden_dim, hidden_dim, 4, 3)
@@ -291,7 +291,8 @@ def build(args):
         det_token_num=args.det_token_num,
         backbone_name=args.backbone_name,
         init_pe_size=args.init_pe_size,
-        mid_pe_size=args.mid_pe_size
+        mid_pe_size=args.mid_pe_size,
+        use_checkpoint=args.use_checkpoint,
 
     )
     matcher = build_matcher(args)
