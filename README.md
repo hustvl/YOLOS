@@ -3,9 +3,11 @@
 # You Only :eyes: One Sequence
 </div>
 
-* **TL;DR:** We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
+**TL;DR:**  We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
 
-* This project is under active development.
+This project is under active development.
+
+* Jun 8, 2021: We add a [notebook](./VisualizeAttention.ipynb) for self-attention visualization of `[Det]` tokens, check it out!
 
 <br>
 
@@ -216,7 +218,7 @@ python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 
 ![cls](./visualization/yolos_s_300_pre.pth-eval-800eval-pred-all-tokens-cls.png)
 
 
-**Visualize self-attention of the [DetTok] token on the different heads of the last layer：**
+**Visualize self-attention of `[Det]` tokens on different heads of the last layer：**
 - use [VisualizeAttention.ipynb](./VisualizeAttention.ipynb) to get following visualization
 
 ![Det-Tok-41](visualization/exp/Det-Tok-41/Det-Tok-41_attn.png)
