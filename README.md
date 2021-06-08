@@ -215,9 +215,12 @@ python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 
 ![cls](visualization/yolos_s_300_pre.pth-eval-800eval-pred-bbox.png)
 ![cls](./visualization/yolos_s_300_pre.pth-eval-800eval-pred-all-tokens-cls.png)
 
+
 **Visualize self-attention of the [DetTok] token on the different heads of the last layer：**
 - use [VisualizeAttention.ipynb](./VisualizeAttention.ipynb) to get following visualization
-![Det-Tok41](./visualization/exp/Det-Tok#41/Det-Tok#41_attn.png)
+
+![Det-Tok-41](visualization/exp/Det-Tok-41/Det-Tok-41_attn.png)
+![Det-Tok-96](visualization/exp/Det-Tok-96/Det-Tok-96_attn.png)
 
 ## Acknowledgement :heart:
 This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
