@@ -61,6 +61,12 @@ class Detector(nn.Module):
         out = {'pred_logits': outputs_class, 'pred_boxes': outputs_coord}
         return out
 
+    def forward_return_attention(self, samples: NestedTensor):
+        if isinstance(samples, (list, torch.Tensor)):
+            samples = nested_tensor_from_tensor_list(samples)
+        attention = self.backbone(samples.tensors, return_attention=True)
+        return attention
+
 class SetCriterion(nn.Module):
     """ This class computes the loss for DETR.
     The process happens in two steps:
