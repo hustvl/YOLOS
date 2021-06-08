@@ -5,9 +5,7 @@
 
 **TL;DR:**  We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
 
-:man_technologist: This project is under active development :woman_technologist: :
-
-* Jun 8, 2021: We add a [notebook](./VisualizeAttention.ipynb) for self-attention visualization of `[Det]` tokens, check it out!
+:man_technologist: This project is under active development :woman_technologist:
 
 # 
 
@@ -197,9 +195,8 @@ python main.py --coco_path /path/to/coco --batch_size 1 --backbone_name small --
 ```
 
 ### Visualization
-We have observed some intriguing properties of YOLOS, and we are working on a notebook to better demonstrate them, please stay tuned :)
 
-**Visualize box prediction and object categories distribution**：
+* **Visualize box prediction and object categories distribution:**
 
 
 1. To Get visualization in the paper, you need the finetuned YOLOS models on COCO, run following command to get 100 Det-Toks prediction on COCO val split, then it will generate `/path/to/YOLOS/visualization/modelname-eval-800-eval-pred.json`
@@ -218,8 +215,7 @@ python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 
 ![cls](./visualization/yolos_s_300_pre.pth-eval-800eval-pred-all-tokens-cls.png)
 
 
-**Visualize self-attention of `[Det]` tokens on different heads of the last layer：**
-- use [VisualizeAttention.ipynb](./VisualizeAttention.ipynb) to get following visualization:
+* **Visualize self-attention of `[Det]` tokens on different heads of the last layer:**
 
 ![Det-Tok-41](visualization/exp/Det-Tok-41/Det-Tok-41_attn.png)
 ![Det-Tok-96](visualization/exp/Det-Tok-96/Det-Tok-96_attn.png)
