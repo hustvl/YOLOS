@@ -5,11 +5,11 @@
 
 **TL;DR:**  We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
 
-This project is under active development.
+:man_technologist: This project is under active development :woman_technologist: :
 
 * Jun 8, 2021: We add a [notebook](./VisualizeAttention.ipynb) for self-attention visualization of `[Det]` tokens, check it out!
 
-<br>
+# 
 
 > [**You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection**](https://arxiv.org/abs/2106.00666)
 >
@@ -219,13 +219,13 @@ python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 
 
 
 **Visualize self-attention of `[Det]` tokens on different heads of the last layer：**
-- use [VisualizeAttention.ipynb](./VisualizeAttention.ipynb) to get following visualization
+- use [VisualizeAttention.ipynb](./VisualizeAttention.ipynb) to get following visualization:
 
 ![Det-Tok-41](visualization/exp/Det-Tok-41/Det-Tok-41_attn.png)
 ![Det-Tok-96](visualization/exp/Det-Tok-96/Det-Tok-96_attn.png)
 
 ## Acknowledgement :heart:
-This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
+This project is based on DETR ([paper](https://arxiv.org/abs/2005.12872), [code](https://github.com/facebookresearch/detr)), DeiT ([paper](https://arxiv.org/abs/2012.12877), [code](https://github.com/facebookresearch/deit)), DINO ([paper](https://arxiv.org/abs/2104.14294), [code](https://github.com/facebookresearch/dino)) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for their wonderful works.
 
 
 
