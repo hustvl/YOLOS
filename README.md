@@ -5,7 +5,9 @@
 
 **TL;DR:**  We study the transferability of the vanilla ViT pre-trained on mid-sized ImageNet-1k to the more challenging COCO object detection benchmark.
 
-:man_technologist: This project is under active development :woman_technologist:
+:man_technologist: This project is under active development :woman_technologist: :
+
+* **`Jun 9, 2021`:**  We add a [notebook](VisualizeAttention.ipynb) to to visualize self-attention maps of `[Det]` tokens on different heads of the last layer, check it out!
 
 # 
 
