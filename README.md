@@ -215,7 +215,7 @@ python cocoval_gtclsjson_generation.py --coco_path /path/to/coco --batch_size 1 
 ![cls](./visualization/yolos_s_300_pre.pth-eval-800eval-pred-all-tokens-cls.png)
 
 
-* **Visualize self-attention of `[Det]` tokens on different heads of the last layer:**
+* **Use [VisualizeAttention.ipynb](VisualizeAttention.ipynb) to visualize self-attention of `[Det]` tokens on different heads of the last layer:**
 
 ![Det-Tok-41](visualization/exp/Det-Tok-41/Det-Tok-41_attn.png)
 ![Det-Tok-96](visualization/exp/Det-Tok-96/Det-Tok-96_attn.png)
