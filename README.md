@@ -7,6 +7,8 @@
 
 :man_technologist: This project is under active development :woman_technologist: :
 
+* **`Sep 29, 2021`:** **YOLOS is accepted to NeurIPS 2021!**
+
 * **`Jun 22, 2021`:**  We update our [manuscript](https://arxiv.org/pdf/2106.00666.pdf) on arXiv including discussion about position embeddings and more visualizations, check it out!
 
 * **`Jun 9, 2021`:**  We add a [notebook](VisualizeAttention.ipynb) to to visualize self-attention maps of `[Det]` tokens on different heads of the last layer, check it out!
