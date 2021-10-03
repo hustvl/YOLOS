@@ -184,7 +184,7 @@ python -m torch.distributed.launch \
 To evaluate `YOLOS-Ti` model on COCO, run:
 
 ```eval
-python main.py --coco_path /path/to/coco --batch_size 2 --backbone_name tiny --eval --eval_size 512 --init_pe_size 800 1333 --resume /path/to/YOLOS-Ti
+python -m torch.distributed.launch --nproc_per_node=8 --use_env main.py --coco_path /path/to/coco --batch_size 2 --backbone_name tiny --eval --eval_size 512 --init_pe_size 800 1333 --resume /path/to/YOLOS-Ti
 ```
 To evaluate `YOLOS-S` model on COCO, run:
 ```eval
