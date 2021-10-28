@@ -7,6 +7,8 @@
 
 :man_technologist: This project is under active development :woman_technologist: :
 
+* **`Oct 28, 2021`:** YOLOS receives an update for [the NeurIPS 2021 camera-ready version](https://arxiv.org/abs/2106.00666v3). We add MoCo-v3 self-supervised pre-traineing results, study the impacts of detaching `[Det]` tokens, as well as add a new Discussion Section.  
+
 * **`Sep 29, 2021`:** **YOLOS is accepted to NeurIPS 2021!**
 
 * **`Jun 22, 2021`:**  We update our [manuscript](https://arxiv.org/pdf/2106.00666.pdf) on arXiv including discussion about position embeddings and more visualizations, check it out!
