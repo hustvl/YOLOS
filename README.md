@@ -7,6 +7,8 @@
 
 :man_technologist: This project is under active development :woman_technologist: :
 
+* **`May 4, 2022`:**: :eyes:YOLOS is now available in [🤗HuggingFace Transformers](https://huggingface.co/docs/transformers/main/en/model_doc/yolos)!
+
 * **`Apr 8, 2022`:** If you like YOLOS, you might also like MIMDet ([paper](https://arxiv.org/abs/2204.02964) / [code & models](https://github.com/hustvl/MIMDet))! MIMDet can efficiently and effectively adapt a masked image modeling (MIM) pre-trained vanilla Vision Transformer (ViT) for high-performance object detection (51.5 box AP and 46.0 mask AP on COCO using ViT-Base & Mask R-CNN).
 
 * **`Oct 28, 2021`:** YOLOS receives an update for [the NeurIPS 2021 camera-ready version](https://arxiv.org/abs/2106.00666v3). We add MoCo-v3 self-supervised pre-traineing results, study the impacts of detaching `[Det]` tokens, as well as add a new Discussion Section.  
